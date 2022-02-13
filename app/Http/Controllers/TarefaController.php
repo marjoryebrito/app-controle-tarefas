@@ -11,7 +11,7 @@ class TarefaController extends Controller
 
 
     public function __construct(){
-        $this->middleware('auth');
+      //  $this->middleware('auth');
     }
 
     /**
@@ -21,7 +21,13 @@ class TarefaController extends Controller
      */
     public function index()
     {
-        return 'chegamos até aqui';
+        if(auth()->check()){
+            $nome = auth()->user()->name;
+            return "Olá, $nome.";
+        }else{
+            return 'Você não está logado no sistema';
+        }
+        
     }
 
     /**
