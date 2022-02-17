@@ -22,12 +22,11 @@ class TarefaController extends Controller
      */
     public function index()
     {
-        if(auth()->check()){
-            $nome = auth()->user()->name;
-            return "Olá, $nome.";
-        }else{
-            return 'Você não está logado no sistema';
-        }
+        $user_id = auth()->user()->id;
+        $tarefas = Tarefa::where('user_id', $user_id)->get();
+
+        
+        return view('tarefa.index', ['tarefas' => $tarefas]);
         
     }
 
