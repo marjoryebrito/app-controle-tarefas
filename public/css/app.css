@@ -6660,6 +6660,10 @@ textarea.form-control-lg {
   vertical-align: text-top !important;
 }
 
+.float-right{
+  float:right;
+}
+
 .float-start {
   float: left !important;
 }
